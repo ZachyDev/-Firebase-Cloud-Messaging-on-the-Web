@@ -8,5 +8,17 @@
     messagingSenderId: "984600315066",
     appId: "1:984600315066:web:ee48bf99087d783bdeae83"
   };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+ // initialize firebase
+ firebase.initializeApp(firebaseConfig);
+
+// push notifications
+const messaging = firebase.messaging();
+// request permission
+messaging.requestPermission()
+.then(() => {
+    console.log('Permission granted');
+})
+.catch(err => {
+    console.log('Error occurred!');
+})
+
