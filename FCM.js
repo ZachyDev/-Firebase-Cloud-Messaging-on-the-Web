@@ -17,6 +17,10 @@ const messaging = firebase.messaging();
 messaging.requestPermission()
 .then(() => {
     console.log('Permission granted');
+    return messaging.getToken();
+})
+.then((token) => {
+    console.log(token);
 })
 .catch(err => {
     console.log('Error occurred!');
